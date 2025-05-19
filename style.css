@@ -319,27 +319,34 @@ section {
     }
 
     .download-app {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center !important;
+    }
+
+    .download-app > * {
+        margin: 0.5rem !important;
+    }
+    
+    .hero-right-img {
         display: none !important;
     }
 
-    .download-app:last-child {
-        display: none !important;
-
+    .hero-left {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
-
-    #manage {
-        padding: 50px 0 !important;
+    
+    .hero-left h1 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem;
     }
-
-    #manage .row p {
-        margin-right: 0 !important;
-    }
-
-    .food-items {
-        display: none !important;
-
-    }
-
+  
     .screen {
         display: block !important;
     }
@@ -379,6 +386,10 @@ section {
 
     #manage .row p {
         margin-right: 0 !important;
+    }
+    
+    .hero-right-img {
+        display: none !important;
     }
 }
 
