@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="download-app ml-4">
+                            <!-- <div class="download-app ml-4">
                                 <a href="https://play.google.com/store/apps/details?id=com.guzo_expo_user.guzo" class="text-white">
                                     <div class="playstore">
                                         <div
@@ -115,6 +115,50 @@
                                         </div>
                                     </div>
                                 </a>
+                            </div> -->
+                            <!-- Google Play Button with Modal Trigger -->
+                            <div class="download-app ml-4">
+                                <button class="btn text-white bg-blue" data-toggle="modal" data-target="#betaModal">
+                                <div class="playstore card border-white rounded d-flex flex-row align-items-center px-2 text-center">
+                                    <div class="icon float-left align-items-center">
+                                    <svg width="2rem" height="2rem" viewBox="0 0 16 16"
+                                        class="bi bi-play-fill" fill="#ffffff"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                    </svg>
+                                    </div>
+                                    <div class="content float-right ml-1">
+                                    <small>Closed Beta</small>
+                                    <h5>Join & Install</h5>
+                                    </div>
+                                </div>
+                                </button>
+                            </div>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="betaModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content p-4 text-center">
+                                    <h4 class="mb-3">Guzo Android Beta</h4>
+                                    <p>
+                                    Our Android app is currently in <b>closed testing</b>.  
+                                    To install, please follow these steps:
+                                    </p>
+                                    <ol class="text-left">
+                                    <li>
+                                        Join our 
+                                        <a href="https://groups.google.com/g/guzo-betatesters" target="_blank">
+                                        Google Beta Group
+                                        </a>
+                                    </li>
+                                    <li>
+                                        After joining, click below to install from Play Store
+                                    </li>
+                                    </ol>
+                                    <a href="https://play.google.com/store/apps/details?id=com.guzo_expo_user.guzo"
+                                    target="_blank" class="btn btn-primary mt-3">Go to Play Store</a>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
