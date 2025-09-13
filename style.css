@@ -168,6 +168,33 @@ section {
     background: #f9f9f9 !important;
 }
 
+.beta-modal {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .beta-modal .modal-header {
+    padding: 0.8rem 1.3rem;
+  }
+  .beta-modal .modal-title {
+    color: #000;
+    font-size: 1rem !important;
+  }
+  .beta-modal .close {
+    color: #000;
+    opacity: 0.6;
+  }
+  .beta-modal .modal-body {
+    color: #000;
+    padding: 1.5rem;
+    font-size: 1rem !important;
+  }
+  .beta-modal .modal-body a {
+    text-decoration: none;
+  }
+  .beta-modal .modal-body a:hover {
+    text-decoration: underline;
+  }
+
 /* Custom Button */
 .get-app {
     padding: 0.3125rem 1.875rem !important;
