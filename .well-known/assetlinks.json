@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.guzo_expo_user.guzo",
+      "sha256_cert_fingerprints": [
+        "01:DC:96:9E:74:B8:47:9E:65:2E:F4:9F:79:50:49:52:42:E8:2D:D3:5E:D0:A4:F9:3D:D0:8A:26:E0:10:7B:F7"
+      ]
+    }
+  }
+]

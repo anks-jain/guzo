@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["475DLYY36C.com.guzo-expo-user.guzo"],
+        "components": [
+          { "/": "/join/*" }
+        ]
+      }
+    ]
+  }
+}
