@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Group on Guzo</title>
+
+  <!-- Open Graph / WhatsApp link preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="You're invited to join a group on Guzo!" />
+  <meta property="og:description" content="Guzo — Track badminton scores, stats and leaderboards with your squad." />
+  <meta property="og:image" content="https://guzo.co.in/images/guzo-logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:url" content="https://guzo.co.in" />
+  <meta property="og:site_name" content="Guzo" />
+
+  <!-- Twitter / iMessage -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="You're invited to join a group on Guzo!" />
+  <meta name="twitter:description" content="Guzo — Track badminton scores, stats and leaderboards with your squad." />
+  <meta name="twitter:image" content="https://guzo.co.in/images/guzo-logo.png" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .code-box {
+      background: #f0f9ff;
+      border: 2px dashed #38b6ff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 28px;
+    }
+
+    .code-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .code {
+      font-size: 28px;
+      font-weight: 800;
+      color: #38b6ff;
+      letter-spacing: 4px;
+    }
+
+    .code-hint {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 12px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #38b6ff;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .divider {
+      font-size: 12px;
+      color: #9ca3af;
+      margin: 4px 0 16px;
+    }
+
+    .redirect-msg {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-top: 20px;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="/images/guzo-logo.png" alt="Guzo" onerror="this.style.display='none'" />
+
+    <h1>You're invited!</h1>
+    <p class="subtitle" id="subtitle">Someone invited you to join a group on Guzo — the badminton score tracker.</p>
+
+    <div class="code-box">
+      <div class="code-label">Invite Code</div>
+      <div class="code" id="invite-code">——</div>
+      <div class="code-hint">Enter this code in the app after installing</div>
+    </div>
+
+    <a id="store-btn" href="#" class="btn btn-primary">Download Guzo</a>
+
+    <div class="divider" id="already-have-hint">Already have the app?</div>
+    <a id="open-btn" href="#" class="btn btn-secondary hidden">Open in App</a>
+
+    <p class="redirect-msg" id="redirect-msg">Redirecting you to the store...</p>
+  </div>
+
+  <script>
+    // Extract invite code from URL: /join/CODE?from=Name&group=GroupName
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const code = pathParts[pathParts.length - 1] || '';
+    const params = new URLSearchParams(window.location.search);
+    const fromName = params.get('from');
+    const groupName = params.get('group');
+
+    if (code && code !== 'join') {
+      document.getElementById('invite-code').textContent = code.toUpperCase();
+    }
+
+    if (fromName) {
+      const subtitle = groupName
+        ? `${fromName} invited you to join <strong>${groupName}</strong> on Guzo — the badminton score tracker.`
+        : `${fromName} invited you to join a group on Guzo — the badminton score tracker.`;
+      document.getElementById('subtitle').innerHTML = subtitle;
+    }
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isAndroid = /Android/.test(navigator.userAgent);
+
+    const IOS_STORE = 'https://apps.apple.com/in/app/guzo-badminton-score-stats/id6745791437';
+    const ANDROID_STORE = 'https://play.google.com/store/apps/details?id=com.guzo_expo_user.guzo';
+    const DESKTOP_URL = 'https://guzo.co.in';
+    const DEEP_LINK = `https://guzo.co.in/join/${code}${window.location.search}`;
+
+    const storeBtn = document.getElementById('store-btn');
+    const openBtn = document.getElementById('open-btn');
+    const redirectMsg = document.getElementById('redirect-msg');
+    const alreadyHaveHint = document.getElementById('already-have-hint');
+
+    if (isIOS) {
+      storeBtn.href = IOS_STORE;
+      storeBtn.textContent = 'Download on the App Store';
+      openBtn.href = DEEP_LINK;
+      openBtn.textContent = 'Open in App';
+      openBtn.classList.remove('hidden');
+      setTimeout(() => { window.location.href = IOS_STORE; }, 1500);
+    } else if (isAndroid) {
+      storeBtn.href = ANDROID_STORE;
+      storeBtn.textContent = 'Get it on Google Play';
+      openBtn.href = DEEP_LINK;
+      openBtn.textContent = 'Open in App';
+      openBtn.classList.remove('hidden');
+      setTimeout(() => { window.location.href = ANDROID_STORE; }, 1500);
+    } else {
+      // Desktop — no store redirect
+      storeBtn.href = DESKTOP_URL;
+      storeBtn.textContent = 'Visit Guzo';
+      alreadyHaveHint.classList.add('hidden');
+      redirectMsg.textContent = 'Guzo is available on iOS and Android.';
+    }
+  </script>
+</body>
+</html>
